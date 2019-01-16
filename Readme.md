@@ -1,7 +1,9 @@
 ### Compiling the main code
 1. Install libeigen3-dev (necessary for `Diagonalization.h`)
-  * You may also have to upgrade to the latest version via a ppa: https://launchpad.net/~nschloe/+archive/ubuntu/eigen-backports
-  * You may also have to follow this to properly link it: https://stackoverflow.com/a/25537967/3245710
+
+   You may also have to upgrade to the latest version via a ppa: https://launchpad.net/~nschloe/+archive/ubuntu/eigen-backports
+
+   You may also have to follow this to properly link it: https://stackoverflow.com/a/25537967/3245710
 2. Comment out parts of `main.cpp` as desired.
 3. Run `make` in the main directory. `make clean` cleans the compilation files.
 4. Run `./main`.
@@ -15,7 +17,7 @@ This code has been tested on ubuntu and should work on other debian systems.
 3. Mass squared differences are in eV<sup>2</sup> as usual and the raw angles/phases given by `t12`, `t13`, `t23`, and `delta` are all stored in radians.
 
 ### Function parameters
-1. Each Pmue function is a function of a, L, and E, in that order (the order is easy to remember because of ale).
+1. Each `Pmue` function is a function of a, L, and E, in that order (the order is easy to remember because of ale).
 Some functions (DMP and AM) also carry an order parameter, see the header files.
 2. The matter potential a is defined as 2EV<sub>CC</sub> and carries units of eV^2.
 For example, given Y<sub>e</sub>=0.5 and &rho;=3.0 g/cc, one would set a by writing `a = E * 0.5 * 3.0 * YerhoE2a;` where YerhoE2a corrects the units.
@@ -27,7 +29,9 @@ For example, given Y<sub>e</sub>=0.5 and &rho;=3.0 g/cc, one would set a by writ
 ### Incorporating in your own code
 1. The code for each expression is designed to be simple and stand alone.
 2. Put the relevant cpp and h files in the appropriate locations for a given expression
-  * libeigen3-dev (see above) is necessary only for diagonalization
+
+   libeigen3-dev (see above) is necessary only for diagonalization
+
 3. Include the parameters files (see above) and run `Recalc_Parameters();` after changing the vacuum parameters.
 
 ### Adding a new expression

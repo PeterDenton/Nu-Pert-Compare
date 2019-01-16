@@ -1,7 +1,7 @@
 #ifndef MP_H
 #define MP_H
 
-// from http://arxiv.org/abs/1505.01826
+// From http://arxiv.org/abs/1505.01826
 
 namespace MP
 {

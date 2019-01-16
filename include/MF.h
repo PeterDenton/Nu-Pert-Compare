@@ -1,7 +1,7 @@
 #ifndef MF_H
 #define MF_H
 
-// from https://arxiv.org/abs/hep-ph/0103300
+// From https://arxiv.org/abs/hep-ph/0103300
 
 namespace MF
 {

@@ -1,7 +1,7 @@
 #ifndef FL_H
 #define FL_H
 
-// from https://arxiv.org/abs/hep-ph/0606101
+// From https://arxiv.org/abs/hep-ph/0606101
 
 namespace FL
 {
