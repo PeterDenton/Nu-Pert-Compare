@@ -3,7 +3,6 @@
 
    You may also have to upgrade to the latest version via a ppa: https://launchpad.net/~nschloe/+archive/ubuntu/eigen-backports
 
-   You may also have to follow this to properly link it: https://stackoverflow.com/a/25537967/3245710
 2. Comment out parts of `main.cpp` as desired.
 3. Run `make` in the main directory. `make clean` cleans the compilation files.
 4. Run `./main`.
@@ -42,7 +41,7 @@ For example, given Y<sub>e</sub>=0.5 and &rho;=3.0 g/cc, one would set a by writ
 ### References
 1. This code is free to use and modify.
 2. If you use any aspect of this code or any related results, please reference the associated article **arXiv:xxxx.xxxxx**.
-3. If you use any of the included expressions, please reference the relevant article, each of which is mentioned in the header file.
+3. If you use any of the included expressions, please also reference the article from which the expression comes from, each of which is mentioned in the relevant header file.
 
 ### Disclaimer
 Every effort has been made to make the implementation of each expression as fast as possible while remaining true to the original expression.

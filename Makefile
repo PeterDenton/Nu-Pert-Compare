@@ -12,7 +12,7 @@ Objects=$(filter-out $(addprefix obj/,$(Executables:=.o)),$(AllObjects))
 all: $(Sources) $(Executables)
 
 $(Executables): $(AllObjects)
-	@mkdir -p data obj
+	@mkdir -p data obj fig
 	$(CXX) $(Objects) $(addprefix obj/,$@.o) -o $@
 
 obj/%.o: src/%.cpp
