@@ -44,9 +44,9 @@ def p(which):
 	v[1] = data["E"][-1]
 
 	v[2] = 1e-3
-	v[3] = 3e0
+	v[3] = 2e0
 	if which == "main": v[2] = 1e-7
-	if which == "madrid": v[3] = 1e0
+#	if which == "madrid": v[3] = 1e0
 	if which == "exacts":
 		v[2] = 1e-16
 		v[3] = 1e-12

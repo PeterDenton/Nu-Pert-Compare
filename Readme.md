@@ -39,7 +39,7 @@ For example, given Y<sub>e</sub>=0.5 and &rho;=3.0 g/cc, one would set a by writ
 3. Fill in the `Pmue` and `Name` functions with the new enum and include the header file in `Probabilities.cpp`.
 
 ### References
-1. This code is free to use and modify.
+1. This code is free to use and modify provided that you reference this code as described below.
 2. If you use any aspect of this code or any related results, please reference the associated article **[arXiv:xxxx.xxxxx](https://arxiv.org)** as well as this code itself on zenodo **[doi:xxxx](https://zenodo.com)**.
 3. If you use any of the included expressions, please also reference the article from which the expression comes from, each of which is mentioned in the relevant header file.
 

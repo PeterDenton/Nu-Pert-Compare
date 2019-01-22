@@ -1,7 +1,5 @@
 #include <fstream>
 
-#include <iostream>
-
 #include "Figures.h"
 #include "Parameters.h"
 #include "Probabilities.h"
