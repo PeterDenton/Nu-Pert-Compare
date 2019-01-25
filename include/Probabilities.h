@@ -12,6 +12,7 @@ enum expression : int
 	mp,
 	dmp0,
 	dmp1,
+	akt,
 	am2,
 	am52,
 	mf,

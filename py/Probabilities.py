@@ -15,7 +15,7 @@ dt = [(d, "f") for d in dts]
 data = np.loadtxt(fname, dtype = dt, skiprows = 1)
 
 # don't plot every function
-exclude = [r"AM^2", "AKS", "Diag", "AJLOS(31)", "MP", "MF", "FL", "Zeroth", "Vacuum", r"DMP^1"]
+exclude = [r"AM^2", "AKS", "Diag", "AJLOS(31)", "MP", "MF", "FL", "Zeroth", "Vacuum", r"DMP^1", "AKT"]
 
 # two plots
 f, (ax1, ax2) = plt.subplots(1, 2, sharey = True)

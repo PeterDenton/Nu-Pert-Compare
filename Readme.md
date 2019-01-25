@@ -1,6 +1,6 @@
-| DOI |
-|:---:|
-|[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2547029.svg)](https://doi.org/10.5281/zenodo.2547029)|
+| arXiv | DOI |
+|:-----:|:---:|
+|[![arXiv](https://img.shields.io/badge/arXiv-xxxx.xxxxx-orange.svg)](https://arXiv.org/abs/xxxx.xxxxx)|[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2547029.svg)](https://doi.org/10.5281/zenodo.2547029)|
 
 ### Compiling the main code
 1. Install libeigen3-dev (necessary for `Diagonalization.h`)
@@ -23,7 +23,7 @@ This code has been tested on ubuntu and should work on other debian systems.
 1. Each `Pmue` function is a function of a, L, and E, in that order (the order is easy to remember because of ale).
 Some functions (DMP and AM) also carry an order parameter, see the header files.
 2. The matter potential a is defined as 2EV<sub>CC</sub> and carries units of eV^2.
-For example, given Y<sub>e</sub>=0.5 and &rho;=3.0 g/cc, one would set a by writing `a = E * 0.5 * 3.0 * YerhoE2a;` where YerhoE2a corrects the units.
+For example, given Y<sub>e</sub>=0.5 and &rho;=3.0 g/cm<sup>3</sup>, one would set a by writing `a = E * 0.5 * 3.0 * YerhoE2a;` where YerhoE2a corrects the units.
 3. The baseline and energy are given in km and GeV.
 4. To reverse to &nu;<sub>e</sub> to &nu;<sub>mu</sub> oscillations take L to be negative.
 5. For anti-neutrinos take E to be negative.

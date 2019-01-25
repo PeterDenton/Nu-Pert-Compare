@@ -84,6 +84,7 @@ void Speed()
 	Write(aks, 5e3, P_exact, data);
 	Write(zeroth, 1e4, P_exact, data);
 	Write(vacuum, 2e4, P_exact, data);
+	Write(akt, 2e3, P_exact, data);
 
 	data.close();
 }
