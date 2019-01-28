@@ -74,7 +74,7 @@ fs = 12
 shift = 1.03
 va = "center"
 
-rights = ["AJLOS(31)", "AJLOS(48)", "FL", "AKS", "Vacuum", "AKT"]
+rights = ["AJLOS(31)", "AJLOS(48)", "FL", "AKS", "Vacuum"]
 has = {} # horizontal alignments
 shifts = {}
 for name in names:

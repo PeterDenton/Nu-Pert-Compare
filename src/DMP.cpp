@@ -8,9 +8,10 @@
 namespace DMP {
 double Pmue(double a, double L, double E, int order)
 {
-	double Dmsqeea, c2phi, a12, cphisq, sphisq, s2phi, cphi13sq, Dl21, c2psi, cpsisq, spsisq, Dl31, L4E, Delta21, Delta31, Delta32, sDelta21, sDelta31, sDelta32, Jrm, C31, C32, C21, D;
+	double Dmsqeea, c2phi, a12, cphisq, sphisq, s2phi, cphi13sq, Dl21, c2psi, cpsisq, spsisq, Dl31, L4E, Delta21, Delta31, Delta32, sDelta21, sDelta31, sDelta32, Jrm, C31, C32, C21, D, tmp;
 
-	Dmsqeea = Dmsqee * sqrt(square(c213 - a / Dmsqee) + square(s213));
+	tmp = c213 - a / Dmsqee;
+	Dmsqeea = Dmsqee * sqrt(square(tmp) + square(s213));
 	c2phi = (Dmsqee * c213 - a) / Dmsqeea;
 	a12 = 0.5 * (a + Dmsqee - Dmsqeea);
 
@@ -19,7 +20,8 @@ double Pmue(double a, double L, double E, int order)
 	s2phi = s213 * Dmsqee / Dmsqeea;
 	cphi13sq = cphisq * c13sq + sphisq * s13sq + s2phi * c13 * s13;
 
-	Dl21 = Dmsq21 * sqrt(square(c212 - a12 / Dmsq21) + cphi13sq * square(s212));
+	tmp = c212 - a12 / Dmsq21;
+	Dl21 = Dmsq21 * sqrt(square(tmp) + cphi13sq * square(s212));
 	c2psi = (Dmsq21 * c212 - a12) / Dl21;
 	cpsisq = 0.5 * (1 + c2psi);
 	spsisq = 0.5 * (1 - c2psi);
