@@ -27,7 +27,7 @@ exact_speeds = np.array([data[name][0] for name in names[exact_mask]])
 exact_precs = np.array([data[name][1] for name in names[exact_mask]])
 
 # these expressions are at least 1% precise
-precises = [r"DMP^0", r"DMP^1", "MP", r"AM^2", r"AM^{5/2}", "MF"]
+precises = [r"DMP^0", r"DMP^1", "MP", r"AM^2", r"AM^{5/2}", "MF", "AKT"]
 precise_mask = np.array([name in precises for name in names])
 precise_speeds = np.array([data[name][0] for name in names[precise_mask]])
 precise_precs = np.array([data[name][1] for name in names[precise_mask]])
@@ -74,7 +74,7 @@ fs = 12
 shift = 1.03
 va = "center"
 
-rights = ["AJLOS(31)", "AJLOS(48)", "FL", "AKS", "Vacuum"]
+rights = ["AJLOS(31)", "AJLOS(48)", "FL", "AKS", "Vacuum", "AKT"]
 has = {} # horizontal alignments
 shifts = {}
 for name in names:

@@ -1,5 +1,7 @@
 #include <cmath>
 
+#include <iostream>
+
 #include "AKT.h"
 #include "Parameters.h"
 
@@ -9,26 +11,25 @@ namespace AKT
 {
 double Pmue(double a, double L, double E)
 {
-	double tan212p, tan213p;
 	double t12p, t13p;
+	double lp_sqrt, lpp_sqrt;
 	double lpp, lpm, lppp, lppm;
 	double s12psq, c12psq, s13psq, c13psq, c212p;
 	double l1, l2, l3;
 	double L4E, Delta21, Delta31, Delta32, sDelta21, sDelta31, sDelta32;
 	double Jrm, C31, C32, C21, D;
 
-	tan212p = Dmsq21 * s212 / (Dmsq21 * c212 - c13sq * a);
-	tan213p = (Dmsq31 - Dmsq21 * s12sq) * s213 / ((Dmsq31 - Dmsq21 * s12sq) * c213 - a);
+	t12p = 0.5 * atan2(Dmsq21 * s212, Dmsq21 * c212 - c13sq * a);
+	t13p = 0.5 * atan2(Dmsqee * s213, Dmsqee * c213 - a);
 
-	t12p = 0.5 * atan(tan212p);
-	t13p = 0.5 * atan(tan213p);
-
-	lpp = 0.5 * (Dmsq21 + a * c13sq + sqrt(square(Dmsq21 - a * c13sq) + 4 * a * c13sq * s12sq * Dmsq21));
-	lpm = 0.5 * (Dmsq21 + a * c13sq - sqrt(square(Dmsq21 - a * c13sq) + 4 * a * c13sq * s12sq * Dmsq21));
+	lp_sqrt = sqrt(square(Dmsq21 - a * c13sq) + 4 * a * c13sq * s12sq * Dmsq21);
+	lpp = 0.5 * (Dmsq21 + a * c13sq + lp_sqrt);
+	lpm = lpp - lp_sqrt;
 
 	s12psq = square(sin(t12p));
-	lppp = 0.5 * (lpp + Dmsq31 + a * s13sq + sqrt(square(lpp - (Dmsq31 + a * s13sq)) + 4 * square(a) * s12psq * c13sq * s13sq));
-	lppm = 0.5 * (lpp + Dmsq31 + a * s13sq - sqrt(square(lpp - (Dmsq31 + a * s13sq)) + 4 * square(a) * s12psq * c13sq * s13sq));
+	lpp_sqrt = sqrt(square(lpp - (Dmsq31 + a * s13sq)) + 4 * square(a) * s12psq * c13sq * s13sq);
+	lppp = 0.5 * (lpp + Dmsq31 + a * s13sq + lpp_sqrt);
+	lppm = lppp - lpp_sqrt;
 
 	l1 = lpm;
 	l2 = lppm;

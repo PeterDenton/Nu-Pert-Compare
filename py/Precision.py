@@ -15,7 +15,7 @@ data = np.loadtxt(fname, dtype = dt, skiprows = 1)
 
 # form several groups for several plots
 madrid = ["Madrid", "FL", "AJLOS(31)"]
-main = ["Madrid", r"DMP^0", r"DMP^1", r"AM^{5/2}", "AJLOS(48)"]
+main = ["Madrid", r"DMP^0", r"DMP^1", r"AM^{5/2}", "AJLOS(48)", "AKT"]
 exacts = ["Diag"]
 ignores = ["ZS", "Zeroth", "Vacuum"]
 others = list(set(expressions) - set(madrid) - set(main) - set(exacts) - set(ignores))
