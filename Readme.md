@@ -1,6 +1,6 @@
 | arXiv | DOI |
 |:-----:|:---:|
-|[![arXiv](https://img.shields.io/badge/arXiv-xxxx.xxxxx-orange.svg)](https://arXiv.org/abs/xxxx.xxxxx)|[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2547029.svg)](https://doi.org/10.5281/zenodo.2547029)|
+|[![arXiv](https://img.shields.io/badge/arXiv-1902.00517-orange.svg)](https://arXiv.org/abs/1902.00517)|[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2547029.svg)](https://doi.org/10.5281/zenodo.2547029)|
 
 ### Compiling the main code
 1. Install libeigen3-dev (necessary for `Diagonalization.h`)
@@ -44,7 +44,7 @@ For example, given Y<sub>e</sub>=0.5 and &rho;=3.0 g/cm<sup>3</sup>, one would s
 
 ### References
 1. This code is free to use and modify provided that you reference this code as described below.
-2. If you use any aspect of this code or any related results, please reference the associated article **[arXiv:xxxx.xxxxx](https://arxiv.org)** as well as this code itself on zenodo **[doi:10.5281/zenodo.2547029](http://dx.doi.org/10.5281/zenodo.2547029)**.
+2. If you use any aspect of this code or any related results, please reference the associated article **[arXiv:1902.00517](https://arxiv.org/abs/1902.00517)** as well as this code itself on zenodo **[doi:10.5281/zenodo.2547029](http://dx.doi.org/10.5281/zenodo.2547029)**.
 3. If you use any of the included expressions, please also reference the article from which the expression comes from, each of which is mentioned in the relevant header file.
 
 ### Disclaimer
