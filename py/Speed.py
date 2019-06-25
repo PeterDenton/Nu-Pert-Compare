@@ -27,7 +27,7 @@ exact_speeds = np.array([data[name][0] for name in names[exact_mask]])
 exact_precs = np.array([data[name][1] for name in names[exact_mask]])
 
 # these expressions are at least 1% precise
-precises = [r"DMP^0", r"DMP^1", "MP", r"AM^2", r"AM^{5/2}", "MF", "AKT"]
+precises = [r"DMP^0", r"DMP^1", "MP", r"AM^2", r"AM^{5/2}", "MF", "AKT", r"DPZ^0", r"DPZ^2"]
 precise_mask = np.array([name in precises for name in names])
 precise_speeds = np.array([data[name][0] for name in names[precise_mask]])
 precise_precs = np.array([data[name][1] for name in names[precise_mask]])
@@ -102,6 +102,8 @@ arrowprops = dict(fc = "black", shrink = 0., width = 2., headwidth = 10., headle
 plt.annotate(r"", xy = (dx1, dx1), xycoords = "axes fraction", xytext = (dx2, dx2), textcoords = "axes fraction", arrowprops = arrowprops)
 plt.annotate(r"", xy = (1 - dx1, 1 - dx1), xycoords = "axes fraction", xytext = (1 - dx2, 1 - dx2), textcoords = "axes fraction", arrowprops = arrowprops)
 
+# version number
+plt.text(0.01, 0.99, r"${\rm Nu}$-${\rm Pert}$-${\rm Compare\ v1.1}$", ha = "left", va = "top", transform = plt.gca().transAxes, color = "gray", fontsize = 10)
 # save the figure
 plt.savefig("fig/Speed.pdf")
 

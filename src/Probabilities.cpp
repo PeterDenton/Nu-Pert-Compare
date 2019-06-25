@@ -16,6 +16,7 @@
 #include "Zeroth.h"
 #include "Vacuum.h"
 #include "AKT.h"
+#include "DPZ.h"
 
 double Pmue(double a, double L, double E, expression m)
 {
@@ -37,6 +38,8 @@ double Pmue(double a, double L, double E, expression m)
 		case zeroth:	return Zeroth::Pmue(a, L, E);
 		case vacuum:	return Vacuum::Pmue(a, L, E);
 		case akt:		return AKT::Pmue(a, L, E);
+		case dpz0:		return DPZ::Pmue(a, L, E, 0);
+		case dpz2:		return DPZ::Pmue(a, L, E, 2);
 
 		default: throw std::domain_error("Model referenced not declared in Pmue(..., expression)");
 	} // switch expression
@@ -62,6 +65,8 @@ std::string Name(expression m)
 		case zeroth:	return "Zeroth";
 		case vacuum:	return "Vacuum";
 		case akt:		return "AKT";
+		case dpz0:		return "DPZ^0";
+		case dpz2:		return "DPZ^2";
 
 		default: throw std::domain_error("Model referenced not declared in Name(expression)");
 	} // switch m

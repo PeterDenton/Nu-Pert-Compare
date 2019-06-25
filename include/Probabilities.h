@@ -21,6 +21,8 @@ enum expression : int
 	diag,
 	vacuum,
 	zeroth,
+	dpz0,
+	dpz2,
 	LAST_EXPRESSION
 };
 
