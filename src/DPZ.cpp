@@ -49,7 +49,7 @@ double Pmue(double a, double L, double E, int order)
 	} // second order eigenvalues
 
 	// calculate submatrix eigenvalues
-	double hee, hem, het, hmm, hmt, htt, sum, prod, xie, chie, xim, chim;
+	double hee, hem, het, hmm, hmt, htt, sum_e, prod_e, sum_m, prod_m;
 	hee = a + Dmsqee * s13sq + Dmsq21 * s12sq;
 	hem = c13 * s12 * c12 * Dmsq21;
 	het = s13 * c13 * Dmsqee;
@@ -58,25 +58,20 @@ double Pmue(double a, double L, double E, int order)
 	htt = Dmsqee * c13sq + Dmsq21 * s12sq;
 
 	// e
-	sum = hmm + htt;
-	prod = hmm * htt - sq(hmt);
-	tmp = sqrt(sq(sum) - 4 * prod);
-	xie = 0.5 * (sum + tmp);
-	chie = 0.5 * (sum - tmp);
+	sum_e = hmm + htt;
+	prod_e = hmm * htt - sq(hmt);
 
 	// mu
-	sum = hee + c23sq * htt + s23sq * hmm - 2 * s23 * c23 * cd * hmt;
-	prod = hee * (c23sq * htt + s23sq * hmm - 2 * s23 * c23 * cd * hmt) - sq(fabs(c23 * het - s23 * conj(eid) * hem));
-	tmp = sqrt(sq(sum) - 4 * prod);
-	xim = 0.5 * (sum + tmp);
-	chim = 0.5 * (sum - tmp);
+	sum_m = hee + c23sq * htt + s23sq * hmm - 2 * s23 * c23 * cd * hmt;
+	prod_m = hee * (c23sq * htt + s23sq * hmm - 2 * s23 * c23 * cd * hmt) - sq(fabs(c23 * het - s23 * conj(eid) * hem));
 
 	// calculate relevant Uaisq
-	double Ue2sq, Ue3sq, Um3sq;
+	double Ue2sq, Ue3sq, Um3sq, Um2sq;
 
-	Ue2sq = (l2 - xie) * (l2 - chie) / ((l2 - l1) * (l2 - l3));
-	Ue3sq = (l3 - xie) * (l3 - chie) / ((l3 - l2) * (l3 - l1));
-	Um3sq = (l3 - xim) * (l3 - chim) / ((l3 - l2) * (l3 - l1));
+	Ue2sq = (sq(l2) - l2 * sum_e + prod_e) / ((l2 - l1) * (l2 - l3));
+	Ue3sq = (sq(l3) - l3 * sum_e + prod_e) / ((l3 - l1) * (l3 - l2));
+	Um3sq = (sq(l3) - l3 * sum_m + prod_m) / ((l3 - l1) * (l3 - l2));
+	Um2sq = (sq(l2) - l2 * sum_m + prod_m) / ((l2 - l1) * (l2 - l3));
 
 	// calculate mixing angles in matter
 	double s13msq, c13msq, s23msq, c23msq, s12msq, c12msq;
@@ -94,6 +89,22 @@ double Pmue(double a, double L, double E, int order)
 
 	sdm = s223 * sd / (2 * sqrt(s23msq * c23msq));
 	cdm = sqrt(1 - sq(sdm)); // assume this gives the right quadrant
+
+    // check cos(deltam)
+	double tmp1, tmp2;
+	double s12m, c12m, s13m, c23m, s23m;
+	s12m = sqrt(s12msq);
+	c12m = sqrt(c12msq);
+	s13m = sqrt(s13msq);
+	c23m = sqrt(c23msq);
+	s23m = sqrt(s23msq);
+    tmp1 = c12msq * c23msq + s12msq * s13msq * s23msq - 2 * c12m * c23m * s12m * s13m * s23m * cdm; // this is as is
+    tmp2 = c12msq * c23msq + s12msq * s13msq * s23msq + 2 * c12m * c23m * s12m * s13m * s23m * cdm; // this is with cos(deltam) with a sign flip
+    if (fabs(tmp1 - Um2sq) > fabs(tmp2 - Um2sq))
+	{
+        cdm *= -1;
+	}
+
 	I = std::complex<double>(0, 1);
 	eidm = cdm + I * sdm;
 
@@ -106,16 +117,6 @@ double Pmue(double a, double L, double E, int order)
 
 	sDelta21 = sin(Delta21);
 	sDelta31 = sin(Delta31);
-/*
-	// amplitudes
-	std::complex<double> A21, A31, Amue;
-
-	A21 = 2 * sqrt(s12msq * c13msq) * (sqrt(c12msq * c23msq) * eidm - sqrt(s12msq * s13msq * s23msq)) * sDelta21;
-	A31 = 2 * sqrt(s13msq * c13msq * s23msq) * sDelta31;
-	Amue = A31 + exp(I * Delta32) * A21;
-
-	return std::norm(Amue);
-*/
 
 double sDelta32 = sin(Delta32);
 double Jrm, C31, C32, C21, D;

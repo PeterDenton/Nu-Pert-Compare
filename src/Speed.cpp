@@ -69,24 +69,24 @@ void Speed()
 
 	std::ofstream data("data/Speed.txt");
 
-	Write(zs, 2e3, P_exact, data);
-	Write(diag, 5e3, P_exact, data);
-	Write(dmp0, 2e3, P_exact, data);
-	Write(dmp1, 2e3, P_exact, data);
-	Write(mp, 5e3, P_exact, data);
-	Write(am2, 5e3, P_exact, data);
-	Write(am52, 5e3, P_exact, data);
-	Write(madrid, 2e4, P_exact, data);
-	Write(fl, 5e3, P_exact, data);
-	Write(ajlos31, 2e4, P_exact, data);
-	Write(ajlos48, 5e3, P_exact, data);
-	Write(mf, 5e3, P_exact, data);
-	Write(aks, 5e3, P_exact, data);
-	Write(zeroth, 1e4, P_exact, data);
-	Write(vacuum, 2e4, P_exact, data);
-	Write(akt, 2e3, P_exact, data);
-	Write(dpz0, 2e3, P_exact, data);
-	Write(dpz2, 2e3, P_exact, data);
+	Write(zs, 5e3, P_exact, data);
+	Write(diag, 1e4, P_exact, data);
+	Write(dmp0, 5e3, P_exact, data);
+	Write(dmp1, 5e3, P_exact, data);
+	Write(mp, 1e4, P_exact, data);
+	Write(am2, 1e4, P_exact, data);
+	Write(am52, 1e4, P_exact, data);
+	Write(madrid, 5e4, P_exact, data);
+	Write(fl, 1e4, P_exact, data);
+	Write(ajlos31, 5e4, P_exact, data);
+	Write(ajlos48, 1e4, P_exact, data);
+	Write(mf, 1e4, P_exact, data);
+	Write(aks, 1e4, P_exact, data);
+	Write(zeroth, 2e4, P_exact, data);
+	Write(vacuum, 5e4, P_exact, data);
+	Write(akt, 5e3, P_exact, data);
+	Write(dpz0, 5e3, P_exact, data);
+	Write(dpz2, 5e3, P_exact, data);
 
 	data.close();
 }
