@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.ticker import (MultipleLocator, FormatStrFormatter, LogLocator)
 
+colors = plt.rcParams["axes.prop_cycle"].by_key()["color"]
+
 fname = "data/Speed.txt"
 dataf = open(fname, "r")
 data = {}
@@ -42,7 +44,9 @@ imprecise_speeds = np.array([data[name][0] for name in names[imprecise_mask]])
 imprecise_precs = np.array([data[name][1] for name in names[imprecise_mask]])
 
 # actually plot the (im)precise expressions
-plt.plot(precise_speeds, precise_precs, "g.")
+dpz_mask = np.array(["DPZ" in x for x in names[precise_mask]])
+plt.plot(precise_speeds[dpz_mask], precise_precs[dpz_mask], ".", c = colors[1])
+plt.plot(precise_speeds[dpz_mask == False], precise_precs[dpz_mask == False], ".", c = colors[0])
 #plt.plot(imprecise_speeds, imprecise_precs, "r.")
 
 # log-log
@@ -84,7 +88,12 @@ bottoms = ["MP"]
 has = {} # horizontal alignments
 vas = {}
 shifts = {}
+color = {}
 for name in names:
+	if "DPZ" in name:
+		color[name] = colors[1]
+	else:
+		color[name] = colors[0]
 	if name in rights:
 		has[name] = "left"
 		vas[name] = "center"
@@ -99,7 +108,7 @@ for name in names:
 		shifts[name] = 1. / shift
 
 # label each dot
-for name in precises: plt.gca().text(data[name][0] * shifts[name], data[name][1], r"${\rm %s}$" % name, fontsize = fs, va = vas[name], ha = has[name], color = "g")
+for name in precises: plt.gca().text(data[name][0] * shifts[name], data[name][1], r"${\rm %s}$" % name, fontsize = fs, va = vas[name], ha = has[name], color = color[name])
 #for name in imprecises: plt.gca().text(data[name][0] * shifts[name], data[name][1], r"${\rm %s}$" % name, fontsize = fs, va = vas[name], ha = has[name], color = "r")
 for name in exacts: plt.gca().text(data[name][0], shift * scale * v[2], r"${\rm %s}$" % name, fontsize = fs, va = "bottom", ha = "center", color = "k")
 
