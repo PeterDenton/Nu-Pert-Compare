@@ -91,15 +91,11 @@ double Pmue(double a, double L, double E, int order)
 	cdm = sqrt(1 - sq(sdm)); // assume this gives the right quadrant
 
     // check cos(deltam)
-	double tmp1, tmp2;
-	double s12m, c12m, s13m, c23m, s23m;
-	s12m = sqrt(s12msq);
-	c12m = sqrt(c12msq);
-	s13m = sqrt(s13msq);
-	c23m = sqrt(c23msq);
-	s23m = sqrt(s23msq);
-    tmp1 = c12msq * c23msq + s12msq * s13msq * s23msq - 2 * c12m * c23m * s12m * s13m * s23m * cdm; // this is as is
-    tmp2 = c12msq * c23msq + s12msq * s13msq * s23msq + 2 * c12m * c23m * s12m * s13m * s23m * cdm; // this is with cos(deltam) with a sign flip
+	double tmp0, tmp1, tmp2;
+    tmp = 2 * sqrt(c12msq * c23msq * s12msq * s13msq * s23msq) * cdm;
+    tmp0 = c12msq * c23msq + s12msq * s13msq * s23msq;
+    tmp1 = tmp0 - tmp; // this is as is
+    tmp2 = tmp0 + tmp; // this is with cos(deltam) with a sign flip
     if (fabs(tmp1 - Um2sq) > fabs(tmp2 - Um2sq))
 	{
         cdm *= -1;
