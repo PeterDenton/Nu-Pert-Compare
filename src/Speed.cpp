@@ -88,6 +88,13 @@ void Speed()
 	Write(dpz0, 5e3, P_exact, data);
 	Write(dpz2, 5e3, P_exact, data);
 
+	delta = 0;
+	Recalc_Parameters();
+	First_Peak(zs, &E_exact, &P_exact);
+
+	Write(os, 1e3, P_exact, data);
+	Write(Exp, 1e3, P_exact, data);
+
 	data.close();
 }
 

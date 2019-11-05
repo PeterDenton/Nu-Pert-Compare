@@ -23,6 +23,8 @@ enum expression : int
 	zeroth,
 	dpz0,
 	dpz2,
+	os,
+	Exp,
 	LAST_EXPRESSION
 };
 

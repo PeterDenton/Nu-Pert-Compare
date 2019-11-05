@@ -24,7 +24,7 @@ names = np.array(data.keys())
 
 # group in different categories
 # exact measurements have arrows pointing down for precision
-exacts = ["ZS", "Diag"]
+exacts = ["ZS", "Diag", "OS", "Exp"]
 exact_mask = np.array([name in exacts for name in names])
 exact_speeds = np.array([data[name][0] for name in names[exact_mask]])
 exact_precs = np.array([data[name][1] for name in names[exact_mask]])
@@ -125,7 +125,7 @@ plt.annotate(r"", xy = (dx1, dx1), xycoords = "axes fraction", xytext = (dx2, dx
 plt.annotate(r"", xy = (1 - dx1, 1 - dx1), xycoords = "axes fraction", xytext = (1 - dx2, 1 - dx2), textcoords = "axes fraction", arrowprops = arrowprops)
 
 # version number
-plt.text(0.91, 0.01, r"${\rm Nu}$-${\rm Pert}$-${\rm Compare\ v1.1}$", ha = "right", va = "bottom", transform = plt.gca().transAxes, color = "gray", fontsize = 10)
+plt.text(0.10, 0.01, r"${\rm Nu}$-${\rm Pert}$-${\rm Compare\ v1.2}$", ha = "left", va = "bottom", transform = plt.gca().transAxes, color = "gray", fontsize = 10)
 # save the figure
 plt.savefig("fig/Speed.pdf")
 
